@@ -21,14 +21,21 @@ public class GamePlayer extends Player {
         this.wins = 0;
     }
 
+    @Override
     public void play() {
+        int points = getCards().getTotalValues();
+        if (true) {
+            
+        }
     }
 
+    @Override
     public void win() {
         money.add();
         wins++;
     }
 
+    @Override
     public void lose() {
         money.remove();
         losses++;

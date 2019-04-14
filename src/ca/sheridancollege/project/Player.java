@@ -8,6 +8,7 @@ package ca.sheridancollege.project;
 
 public abstract class Player {
 
+    private CardHand cards = new CardHand();
     protected String playerID; //the unique ID for this player
     protected int wins, losses;
 
@@ -34,7 +35,14 @@ public abstract class Player {
     public void setLosses(int losses) {
         this.losses = losses;
     }
-    
+
+    public CardHand getCards() {
+        return cards;
+    }
+
+    public void setCards(CardHand cards) {
+        this.cards = cards;
+    }
 
     public abstract void play();
 

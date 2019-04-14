@@ -48,14 +48,37 @@ public class PlayingCard extends Card{
         }
     }
 
-    public String getValue() {
-        return value;
+    public int getValue() {
+        int intValue = 0;
+        switch (value) {
+            case "A":
+                intValue = 1;
+                break;
+            case "J":
+            case "Q":
+            case "K":
+                intValue = 10;
+                break;
+            default:
+                intValue = Integer.parseInt(value);
+                break;
+        }
+        return intValue;
     }
 
     public void setValue(Integer value) {
         switch (value) {
             case 1:
                 this.value = "A";
+                break;
+            case 11:
+                this.value = "J";
+                break;
+            case 12:
+                this.value = "Q";
+                break;
+            case 13:
+                this.value = "K";
                 break;
             default:
                 this.value = value.toString();

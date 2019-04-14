@@ -16,8 +16,8 @@ public class Dealer {
 
     private GroupOfCards deck = new GroupOfCards();
 
-    public ArrayList<Card> deal() {
-        ArrayList<Card> card = null;
+    public ArrayList<PlayingCard> deal() {
+        ArrayList<PlayingCard> card = null;
         for (int i = 0; i < 2; i++) {
             if (deck.showCards().size() > 0) {
                 card.add(deck.showCards().get(0));
@@ -27,8 +27,8 @@ public class Dealer {
         return card;
     }
 
-    public Card hit() {
-        Card card = null;
+    public PlayingCard hit() {
+        PlayingCard card = null;
         if (deck.showCards().size() > 0) {
             card = deck.showCards().get(0);
             deck.showCards().remove(card);

@@ -1,0 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package ca.sheridancollege.project;
+
+/**
+*  Author: Kendrick, Tsz-Kin Yeung
+*  Program:
+*  Date:
+*
+*  Description:
+*/
+public class Test {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        BlackJack blackJack = new BlackJack();
+        Player human = new GamePlayer("04014", new Money(500));
+        Player CPU = new CPU("04814");
+        blackJack.getPlayers().add(human);
+        blackJack.getPlayers().add(CPU);
+        
+        blackJack.getDealer();
+    }
+
+}
