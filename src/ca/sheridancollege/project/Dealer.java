@@ -18,6 +18,7 @@ public class Dealer {
 
     public ArrayList<Card> deal() {
         ArrayList<Card> card = null;
+        //prevent duplicates
         if (deck.getSize() > 15) {
             for (int i = 0; i < 2; i++) {
                 if (deck.showCards().size() > 0) {
