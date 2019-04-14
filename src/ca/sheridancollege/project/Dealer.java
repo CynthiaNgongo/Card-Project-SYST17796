@@ -5,6 +5,8 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+
 /**
  * Class name: Dealer Author: Kendrick, Tsz-Kin Yeung Date: 11 Apr 2019
  *
@@ -14,12 +16,12 @@ public class Dealer {
 
     private GroupOfCards deck = new GroupOfCards();
 
-    public Card[] deal() {
-        Card[] card = null;
+    public ArrayList<Card> deal() {
+        ArrayList<Card> card = null;
         for (int i = 0; i < 2; i++) {
             if (deck.showCards().size() > 0) {
-                card[i] = deck.showCards().get(0);
-                deck.showCards().remove(card[i]);
+                card.add(deck.showCards().get(0));
+                deck.showCards().remove(0);
             }
         }
         return card;
