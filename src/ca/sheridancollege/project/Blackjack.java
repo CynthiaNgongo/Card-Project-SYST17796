@@ -49,6 +49,8 @@ public class Blackjack extends Game {
                 
             } else {
                 System.out.println("You cashed in for $" + player.getMoney());
+                System.out.println("Thank you!");
+                break;
             }
             
         }

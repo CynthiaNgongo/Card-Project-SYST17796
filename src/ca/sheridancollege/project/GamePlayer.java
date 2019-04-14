@@ -33,4 +33,16 @@ public class GamePlayer extends Player {
         money.remove();
         losses++;
     }
+
+    public int getMoney() {
+        return money.getAmount();
+    }
+
+    public void setMoney(Money money) {
+        this.money = money;
+    }
+    
+    
+    
+    
 }

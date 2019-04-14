@@ -10,12 +10,15 @@ package ca.sheridancollege.project;
  * @author lstif
  */
 public class Money {
+
     private int amount;
 
     public Money(int amount) {
         this.amount = amount;
     }
-      
+
+    public Money() {
+    }
 
     public int getAmount() {
         return amount;
@@ -24,12 +27,13 @@ public class Money {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-    
-    public void remove(){
+
+    public void remove() {
         this.amount = amount - 100;
     }
-    
-    public void add(){
+
+    public void add() {
         this.amount = amount + 100;
     }
+
 }

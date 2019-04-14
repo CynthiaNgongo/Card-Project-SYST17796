@@ -1,4 +1,3 @@
-
 /**
  * SYST 17796 Project Winter 2019 Base code.
  * Students can modify and extend to implement their game.
@@ -10,6 +9,15 @@ public abstract class Player {
 
     protected String playerID; //the unique ID for this player
     protected int wins, losses;
+    protected Money money;
+
+    public int getMoney() {
+        return money.getAmount();
+    }
+
+    public void setMoney(int amount) {
+        money.setAmount(amount);
+    }
 
     public String getPlayerID() {
         return playerID;
@@ -34,7 +42,6 @@ public abstract class Player {
     public void setLosses(int losses) {
         this.losses = losses;
     }
-    
 
     public abstract void play();
 

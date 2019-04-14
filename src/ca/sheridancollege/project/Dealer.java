@@ -13,38 +13,39 @@ import java.util.ArrayList;
  * Description:
  */
 public class Dealer {
-
+    
     private GroupOfCards deck = new GroupOfCards();
-
-    public ArrayList<Card> deal() {
-        ArrayList<Card> card = null;
+    private boolean newRound;
+    
+    public void deal(Hand hand) {
         //prevent duplicates
         if (deck.getSize() > 15) {
-            for (int i = 0; i < 2; i++) {
-                if (deck.showCards().size() > 0) {
-                    card.add(deck.showCards().get(0));
-                    deck.showCards().remove(0);
-                }
-            }
-        } else {
             deck = new GroupOfCards();
-            for (int i = 0; i < 2; i++) {
-                if (deck.showCards().size() > 0) {
-                    card.add(deck.showCards().get(0));
-                    deck.showCards().remove(0);
-                }
+        }
+        for (int i = 0; i < 2; i++) {
+            if (deck.showCards().size() > 0) {
+                hand.addCard(deck.showCards().get(0));
+                deck.showCards().remove(0);
             }
+            
         }
-        return card;
+        
+        deck.setSize(deck.getSize() - 2);
     }
-
-    public Card hit() {
-        Card card = null;
-        if (deck.showCards().size() > 0) {
-            card = deck.showCards().get(0);
-            deck.showCards().remove(card);
-        }
-
-        return card;
+    
+    public boolean isNewRound() {
+        return newRound;
+    }
+    
+    public void setNewRound(boolean newRound) {
+        this.newRound = newRound;
+    }
+    
+    public void hit(Hand hand) {
+        hand.addCard(deck.showCards().get(0));
+        deck.showCards().remove(0);
+        
+        deck.setSize(deck.getSize() - 1);
+        
     }
 }
