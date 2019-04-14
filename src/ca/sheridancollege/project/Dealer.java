@@ -5,6 +5,8 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+
 /**
  * Class name: Dealer Author: Kendrick, Tsz-Kin Yeung Date: 11 Apr 2019
  *
@@ -16,10 +18,20 @@ public class Dealer {
 
     public ArrayList<Card> deal() {
         ArrayList<Card> card = null;
-        for (int i = 0; i < 2; i++) {
-            if (deck.showCards().size() > 0) {
-                card.add(deck.showCards().get(0));
-                deck.showCards().remove(0);
+        if (deck.getSize() > 15) {
+            for (int i = 0; i < 2; i++) {
+                if (deck.showCards().size() > 0) {
+                    card.add(deck.showCards().get(0));
+                    deck.showCards().remove(0);
+                }
+            }
+        } else {
+            deck = new GroupOfCards();
+            for (int i = 0; i < 2; i++) {
+                if (deck.showCards().size() > 0) {
+                    card.add(deck.showCards().get(0));
+                    deck.showCards().remove(0);
+                }
             }
         }
         return card;
@@ -31,6 +43,7 @@ public class Dealer {
             card = deck.showCards().get(0);
             deck.showCards().remove(card);
         }
+
         return card;
     }
 }
