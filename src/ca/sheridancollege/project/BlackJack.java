@@ -49,6 +49,7 @@ public class BlackJack extends Game {
             }
             System.out.println(dealer.showFirstCard());
             askHit();
+            showAllPlayerCards();
             System.out.println(dealer.showAllCards());
             checkWin();
         } while (again());
@@ -76,10 +77,17 @@ public class BlackJack extends Game {
                     do {
                         System.out.println("CPU now have:");
                         player.getCards().add(Dealer.hit());
-                        showCardHand(player);
                     } while (player.getCards().getTotalValues() < 17);
                 }
             }
+        }
+    }
+
+    private void showAllPlayerCards() {
+        for (int i = 0; i < getPlayers().size(); i++) {
+            Player player = getPlayers().get(i);
+            System.out.println(player.getPlayerID() + "have:");
+            showCardHand(player);
         }
     }
 
@@ -87,7 +95,7 @@ public class BlackJack extends Game {
         for (int i = 0; i < getPlayers().size(); i++) {
             int total = getPlayers().get(i).getCards().getTotalValues();
             int dealerTotal = dealer.dealerTotal();
-            if (total == 21 || total > dealerTotal || dealerTotal > 21) {
+            if (!(total > 21) || dealerTotal > 21 || total == 21 || total > dealerTotal) {
                 if (getPlayers().get(i) instanceof GamePlayer) {
                     GamePlayer player = (GamePlayer) getPlayers().get(i);
                     player.win();
@@ -107,7 +115,7 @@ public class BlackJack extends Game {
             }
         }
     }
-    
+
     private boolean again() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Another round? (Y)");
