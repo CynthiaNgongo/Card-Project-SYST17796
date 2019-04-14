@@ -24,4 +24,13 @@ public class Dealer {
         }
         return card;
     }
+
+    public Card hit() {
+        Card card = null;
+        if (deck.showCards().size() > 0) {
+            card = deck.showCards().get(0);
+            deck.showCards().remove(card);
+        }
+        return card;
+    }
 }
