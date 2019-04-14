@@ -13,14 +13,14 @@ package ca.sheridancollege.project;
 *
 *  Description:
 */
-public class Test {
+public class BlackJackGame {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         BlackJack blackJack = new BlackJack();
-        Player human = new GamePlayer("human", new Money(500));
+        Player human = new GamePlayer("human", new Money(200));
         Player CPU = new CPU("CPU");
         
         blackJack.getPlayers().add(human);

@@ -51,7 +51,7 @@ public class BlackJack extends Game {
             askHit();
             showAllPlayerCards();
             System.out.println(dealer.showAllCards());
-            checkWin();
+            getResult();
         } while (again());
     }
 
@@ -91,20 +91,17 @@ public class BlackJack extends Game {
         }
     }
 
-    private void checkWin() {
+    private void getResult() {
         for (int i = 0; i < getPlayers().size(); i++) {
             int total = getPlayers().get(i).getCards().getTotalValues();
             int dealerTotal = dealer.dealerTotal();
-            if (!(total > 21)) {
-                if (dealerTotal > 21 || total == 21 || total > dealerTotal) {
-                    if (getPlayers().get(i) instanceof GamePlayer) {
-                        GamePlayer player = (GamePlayer) getPlayers().get(i);
-                        player.win();
-                        System.out.println("You win, now you have $" + player.getMoney().getAmount());
-                    }
+            if (checkWin(i)) {
+                if (getPlayers().get(i) instanceof GamePlayer) {
+                    GamePlayer player = (GamePlayer) getPlayers().get(i);
+                    player.win();
+                    System.out.println("You win, now you have $" + player.getMoney().getAmount());
                 }
-            }
-            if (total > 21 || dealerTotal < 21 && total < dealerTotal) {
+            } else if (checkLose(i)) {
                 if (getPlayers().get(i) instanceof GamePlayer) {
                     GamePlayer player = (GamePlayer) getPlayers().get(i);
                     player.lose();
@@ -122,11 +119,51 @@ public class BlackJack extends Game {
     private boolean again() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Another round? (Y)");
-        if (sc.next().equalsIgnoreCase("y")) {
+        if (sc.next().equalsIgnoreCase("y") && checkBalance()) {
             return true;
         } else {
             return false;
         }
+    }
+    
+    private boolean checkBalance() {
+        GamePlayer player = (GamePlayer) getPlayers().get(0);
+        if (player.getMoney().getAmount() == 0) {
+            System.out.println("You're broke you have no more money");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private boolean checkWin(int i) {
+        boolean win = false;
+        int total = getPlayers().get(i).getCards().getTotalValues();
+        int dealerTotal = dealer.dealerTotal();
+        if (!(total > 21)) {
+            if (dealerTotal > 21) {
+                win = true;
+            } else if (total == 21) {
+                win = true;
+            } else if (total > dealerTotal) {
+                win = true;
+            }
+        }
+        return win;
+    }
+    
+    private boolean checkLose(int i) {
+        boolean lose = false;
+        int total = getPlayers().get(i).getCards().getTotalValues();
+        int dealerTotal = dealer.dealerTotal();
+        if (total < 21) {
+            if (dealerTotal > total) {
+                lose = true;
+            }
+        } else if (total > 21){
+            lose = true;
+        }
+        return lose;
     }
 
     @Override
