@@ -41,5 +41,4 @@ public abstract class Player {
     public abstract void win();
 
     public abstract void lose();
-
 }
