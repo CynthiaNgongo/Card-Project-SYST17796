@@ -19,7 +19,7 @@ public class Dealer {
     
     public void deal(Hand hand) {
         //prevent duplicates
-        if (deck.getSize() > 15) {
+        if (deck.getSize() < 15 && newRound == true) {
             deck = new GroupOfCards();
         }
         for (int i = 0; i < 2; i++) {

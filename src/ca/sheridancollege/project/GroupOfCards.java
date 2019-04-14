@@ -18,7 +18,7 @@ import java.util.Collections;
 public class GroupOfCards {
 
     //The group of cards, stored in an ArrayList
-    private ArrayList<Card> cards;
+    private ArrayList<PlayingCard> cards;
     private int size;//the size of the grouping
 
     public GroupOfCards() {
@@ -36,7 +36,7 @@ public class GroupOfCards {
      *
      * @return the group of cards.
      */
-    public ArrayList<Card> showCards() {
+    public ArrayList<PlayingCard> showCards() {
         return cards;
     }
 

@@ -12,21 +12,32 @@ import java.util.ArrayList;
  * @author lstif
  */
 public class Hand {
-    
-    private ArrayList<Card> hand = new ArrayList<>();
 
-    public ArrayList<Card> getHand() {
-        return hand;
+    private ArrayList<PlayingCard> hand = new ArrayList<>();
+    private int value;
+
+    public String getHand() {
+        String print = "";
+        for (PlayingCard c : hand) {
+            print += c.toString();
+        }
+        return print;
     }
 
-    public void setHand(ArrayList<Card> hand) {
+    public int getValue() {
+        value = 0;
+        for (PlayingCard pc : hand) {
+            value += Integer.parseInt(pc.getValue());
+        }
+        return value;
+    }
+
+    public void setHand(ArrayList<PlayingCard> hand) {
         this.hand = hand;
     }
-    
-    public void addCard(Card c){
+
+    public void addCard(PlayingCard c) {
         hand.add(c);
     }
-    
-    
-    
+
 }

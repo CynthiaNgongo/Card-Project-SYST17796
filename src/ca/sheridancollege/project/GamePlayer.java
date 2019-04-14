@@ -37,9 +37,13 @@ public class GamePlayer extends Player {
     public int getMoney() {
         return money.getAmount();
     }
-
-    public void setMoney(Money money) {
-        this.money = money;
+    
+    public void addMoney(){
+        money.add();
+    }
+    
+    public void removeMoney(){
+        money.remove();
     }
     
     

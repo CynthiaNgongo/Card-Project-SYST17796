@@ -8,7 +8,7 @@ package ca.sheridancollege.project;
 public abstract class Player {
 
     protected String playerID; //the unique ID for this player
-    protected int wins, losses;
+    protected int wins = 0, losses = 0;
     protected Money money;
 
     public int getMoney() {
@@ -31,16 +31,24 @@ public abstract class Player {
         return wins;
     }
 
-    public void setWins(int wins) {
-        this.wins = wins;
+    public void win(int wins) {
+        this.wins = wins + 1;
     }
 
     public int getLosses() {
         return losses;
     }
 
-    public void setLosses(int losses) {
-        this.losses = losses;
+    public void lose(int losses) {
+        this.losses = losses + 1;
+    }
+
+    public void addMoney() {
+        money.add();
+    }
+
+    public void removeMoney() {
+        money.remove();
     }
 
     public abstract void play();

@@ -28,4 +28,8 @@ public class CPU extends Player{
         losses++;
     }
     
+    public void cpuLogic(Hand hand){
+        
+    }
+    
 }

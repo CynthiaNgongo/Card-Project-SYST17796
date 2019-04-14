@@ -65,7 +65,7 @@ public class PlayingCard extends Card{
     
     @Override
     public String toString() {
-        return getSuit() + " " + getValue() + "\n";
+        return getSuit() + getValue() + " ";
     }
 
 }
