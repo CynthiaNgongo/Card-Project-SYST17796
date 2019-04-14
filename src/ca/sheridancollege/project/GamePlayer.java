@@ -20,13 +20,13 @@ public class GamePlayer extends Player {
         this.losses = 0;
         this.wins = 0;
     }
+    
+    public Money getMoney(){
+        return money;
+    }
 
     @Override
     public void play() {
-        int points = getCards().getTotalValues();
-        if (true) {
-            
-        }
     }
 
     @Override

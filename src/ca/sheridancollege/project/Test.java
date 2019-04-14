@@ -20,12 +20,13 @@ public class Test {
      */
     public static void main(String[] args) {
         BlackJack blackJack = new BlackJack();
-        Player human = new GamePlayer("04014", new Money(500));
-        Player CPU = new CPU("04814");
+        Player human = new GamePlayer("human", new Money(500));
+        Player CPU = new CPU("CPU");
+        
         blackJack.getPlayers().add(human);
         blackJack.getPlayers().add(CPU);
         
-        blackJack.getDealer();
+        blackJack.play();
     }
 
 }

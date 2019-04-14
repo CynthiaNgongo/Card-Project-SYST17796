@@ -23,7 +23,7 @@ public class CardHand extends ArrayList<PlayingCard>{
     public int getTotalValues() {
         int total = 0;
         for (PlayingCard card : this) {
-            total += card.getValue();
+            total += card.getIntValue();
         }
         return total;
     }

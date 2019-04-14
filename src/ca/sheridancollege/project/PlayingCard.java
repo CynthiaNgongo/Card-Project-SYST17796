@@ -47,8 +47,12 @@ public class PlayingCard extends Card{
                 break;
         }
     }
+    
+    public String getValue() {
+        return value;
+    }
 
-    public int getValue() {
+    public int getIntValue() {
         int intValue = 0;
         switch (value) {
             case "A":
@@ -88,7 +92,7 @@ public class PlayingCard extends Card{
     
     @Override
     public String toString() {
-        return getSuit() + " " + getValue() + "\n";
+        return getSuit() + " " + getValue();
     }
 
 }

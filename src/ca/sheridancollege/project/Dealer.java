@@ -14,25 +14,64 @@ import java.util.ArrayList;
  */
 public class Dealer {
 
-    private GroupOfCards deck = new GroupOfCards();
+    private static GroupOfCards deck = new GroupOfCards();
+    private CardHand cards = new CardHand();
+    private static Dealer instance = null;
 
-    public ArrayList<PlayingCard> deal() {
-        ArrayList<PlayingCard> card = null;
+    private Dealer() {
+    }
+    
+    public void selfDeal() {
+        cards.clear();
+        cards.addAll(deal());
+    }
+
+    public static ArrayList<PlayingCard> deal() {
+        ArrayList<PlayingCard> card = new ArrayList<>();
+        if (deck.showCards().size() < 15) {
+            deck = new GroupOfCards();
+        }
         for (int i = 0; i < 2; i++) {
-            if (deck.showCards().size() > 0) {
-                card.add(deck.showCards().get(0));
-                deck.showCards().remove(0);
-            }
+            card.add(deck.showCards().get(0));
+            deck.showCards().remove(0);
         }
         return card;
     }
 
-    public PlayingCard hit() {
+    public static PlayingCard hit() {
         PlayingCard card = null;
-        if (deck.showCards().size() > 0) {
-            card = deck.showCards().get(0);
-            deck.showCards().remove(card);
-        }
+        card = deck.showCards().get(0);
+        deck.showCards().remove(card);
         return card;
+    }
+    
+    public String showFirstCard() {
+        return "Dealer have: " + cards.get(0).toString();
+    }
+    
+    public String showAllCards() {
+        lessThen17();
+        String allCards = "Dealer have:\n";
+        for (PlayingCard card : cards) {
+            allCards += card.toString() + "\n";
+        }
+        return allCards;
+    }
+    
+    public int dealerTotal(){
+        return cards.getTotalValues();
+    }
+    
+    public static Dealer getInstance() {
+        if (instance == null) {
+            instance = new Dealer();
+        }
+        return instance;
+    }
+    
+    private void lessThen17() {
+        while (cards.getTotalValues() < 17) {
+            cards.add(hit());
+        }
     }
 }
