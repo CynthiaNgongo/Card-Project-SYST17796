@@ -75,7 +75,6 @@ public class BlackJack extends Game {
                     } while (player.getCards().getTotalValues() < 21 && cont);
                 } else {
                     do {
-                        System.out.println("CPU now have:");
                         player.getCards().add(Dealer.hit());
                     } while (player.getCards().getTotalValues() < 17);
                 }
@@ -84,9 +83,10 @@ public class BlackJack extends Game {
     }
 
     private void showAllPlayerCards() {
+        System.out.println("\n\n");
         for (int i = 0; i < getPlayers().size(); i++) {
             Player player = getPlayers().get(i);
-            System.out.println(player.getPlayerID() + "have:");
+            System.out.println(player.getPlayerID() + " have:");
             showCardHand(player);
         }
     }
@@ -95,13 +95,16 @@ public class BlackJack extends Game {
         for (int i = 0; i < getPlayers().size(); i++) {
             int total = getPlayers().get(i).getCards().getTotalValues();
             int dealerTotal = dealer.dealerTotal();
-            if (!(total > 21) || dealerTotal > 21 || total == 21 || total > dealerTotal) {
-                if (getPlayers().get(i) instanceof GamePlayer) {
-                    GamePlayer player = (GamePlayer) getPlayers().get(i);
-                    player.win();
-                    System.out.println("You win, now you have $" + player.getMoney().getAmount());
+            if (!(total > 21)) {
+                if (dealerTotal > 21 || total == 21 || total > dealerTotal) {
+                    if (getPlayers().get(i) instanceof GamePlayer) {
+                        GamePlayer player = (GamePlayer) getPlayers().get(i);
+                        player.win();
+                        System.out.println("You win, now you have $" + player.getMoney().getAmount());
+                    }
                 }
-            } else if (total > 21 || total < dealerTotal) {
+            }
+            if (total > 21 || dealerTotal < 21 && total < dealerTotal) {
                 if (getPlayers().get(i) instanceof GamePlayer) {
                     GamePlayer player = (GamePlayer) getPlayers().get(i);
                     player.lose();
