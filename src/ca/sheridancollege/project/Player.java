@@ -30,18 +30,18 @@ public abstract class Player {
     public int getWins() {
         return wins;
     }
-
-    public void win(int wins) {
-        this.wins = wins + 1;
-    }
+//
+//    public void win(int wins) {
+//        this.wins = wins + 1;
+//    }
 
     public int getLosses() {
         return losses;
     }
-
-    public void lose(int losses) {
-        this.losses = losses + 1;
-    }
+//
+//    public void lose(int losses) {
+//        this.losses = losses + 1;
+//    }
 
     public void addMoney() {
         money.add();

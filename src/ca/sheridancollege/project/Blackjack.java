@@ -27,7 +27,7 @@ public class Blackjack extends Game {
     @Override
     public void play() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Please enter your name: ");
+        System.out.print("Please enter your name: ");
         String name = in.nextLine();
         in = new Scanner(System.in);
         dealer = new Dealer();
@@ -40,7 +40,7 @@ public class Blackjack extends Game {
                 System.out.println("Sorry, you ran out of money\nGoodbye!");
                 break;
             }
-            System.out.println("1 for Deal, 2 for Cash in: ");
+            System.out.print("1 for Deal, 2 for Cash in: ");
             int deal = in.nextInt();
             in = new Scanner(System.in);
             if (deal == 1) {
@@ -81,41 +81,35 @@ public class Blackjack extends Game {
 
                     }
                     if (playerHand.getValue() == 21) {
-                        player.addMoney();
                         player.win();
                         System.out.println("You got 21! You win. You now have: $" + player.getMoney());
                         done = true;
 
                     } else if (cpuHand.getValue() == 21) {
-                        player.removeMoney();
-                        System.out.println("The dealer has gotten 21. You lost and have $" + player.getMoney());
                         player.lose();
+                        System.out.println("The dealer has gotten 21. You lost and have $" + player.getMoney());
                         done = true;
 
                     } else if (playerHand.getValue() > 21) {
 
-                        player.removeMoney();
-                        System.out.println("You have gone bust. You have $" + player.getMoney());
                         player.lose();
+                        System.out.println("You have gone bust. You have $" + player.getMoney());
                         done = true;
 
                     } else if (cpuHand.getValue() > 21) {
 
-                        player.addMoney();
-                        System.out.println("The dealer has gone bust. You win and have $" + player.getMoney());
                         player.win();
+                        System.out.println("The dealer has gone bust. You win and have $" + player.getMoney());
                         done = true;
 
                     } else if (playerHand.getValue() > cpuHand.getValue()) {
-                        player.addMoney();
-                        System.out.println("You have won. You have $" + player.getMoney());
                         player.win();
+                        System.out.println("You have won. You have $" + player.getMoney());
                         done = true;
 
                     } else if (playerHand.getValue() < cpuHand.getValue()) {
-                        player.removeMoney();
-                        System.out.println("You have lost. You have $" + player.getMoney());
                         player.lose();
+                        System.out.println("You have lost. You have $" + player.getMoney());
                         done = true;
 
                     } else if (playerHand.getValue() == cpuHand.getValue()) {
