@@ -23,7 +23,6 @@ public class Blackjack extends Game {
 
     public Blackjack(String givenName) {
         super(givenName);
-        cpu = new CPU("Dealer");
     }
 
     @Override
@@ -103,42 +102,51 @@ public class Blackjack extends Game {
         if (playerHand.getValue() == 21) {
             player.win();
             System.out.println("You got 21! You win. You now have: $" + player.getMoney());
+            System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
 
         } else if (cpuHand.getValue() == 21) {
             player.lose();
             System.out.println("The dealer has gotten 21. You lost and have $" + player.getMoney());
+            System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
 
         } else if (playerHand.getValue() > 21) {
 
             player.lose();
             System.out.println("You have gone bust. You have $" + player.getMoney());
+            System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
 
         } else if (cpuHand.getValue() > 21) {
 
             player.win();
             System.out.println("The dealer has gone bust. You win and have $" + player.getMoney());
+            System.out.println("The dealer had: " + cpuHand.getHand());
+
             done = true;
 
         } else if (playerHand.getValue() > cpuHand.getValue()) {
             player.win();
             System.out.println("You have won. You have $" + player.getMoney());
+            System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
 
         } else if (playerHand.getValue() < cpuHand.getValue()) {
             player.lose();
             System.out.println("You have lost. You have $" + player.getMoney());
+            System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
 
         } else if (playerHand.getValue() == cpuHand.getValue()) {
-            System.out.println("You have tied. You have $" + player.getMoney());
+            System.out.println("You have tied. You still have $" + player.getMoney());
+            System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
 
         } else if ((cpuHand.getValue() == 21 && playerHand.getValue() == 21)
                 || (cpuHand.getValue() == playerHand.getValue())) {
             System.out.println("You and the dealer have tied. You still have: $" + player.getMoney());
+            System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
         }
     }
