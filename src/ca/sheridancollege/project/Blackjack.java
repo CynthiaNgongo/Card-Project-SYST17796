@@ -82,7 +82,6 @@ public class Blackjack extends Game {
                     }
                     checkValue();
                     //comparing values
-
                 }
 
             } else {

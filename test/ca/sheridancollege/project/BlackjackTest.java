@@ -1,26 +1,41 @@
 /*
- * Leonardo Stifano
- * Student ID: 991 532 946
- * SYST10199 - Web Programming
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package ca.sheridancollege.project;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
- * @author lstif
+ * @author Cynthia Ngongo
  */
 public class BlackjackTest {
     
     public BlackjackTest() {
     }
-   
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
 
     /**
      * Test of play method, of class Blackjack.
@@ -30,7 +45,6 @@ public class BlackjackTest {
         System.out.println("play");
         Blackjack instance = null;
         instance.play();
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
