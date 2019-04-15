@@ -88,6 +88,7 @@ public class Blackjack extends Game {
 
             } else {
                 System.out.println("You cashed in for $" + player.getMoney());
+                declareWinner();
                 System.out.println("Thank you, Goodbye!");
                 break;
             }
@@ -97,6 +98,11 @@ public class Blackjack extends Game {
 
     @Override
     public void declareWinner() {
+        if (player.getMoney() >= 1000) {
+            System.out.println("You have cashed out with $1000 or over\nYou won");
+        }
+        else{
+            System.out.println("Sorry you lost. You didn't cash out with $1000");}
     }
 
     public void checkValue() {
