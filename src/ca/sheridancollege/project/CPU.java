@@ -9,11 +9,12 @@ package ca.sheridancollege.project;
  *
  * @author lstif
  */
-public class CPU extends Player{
+public class CPU extends Player {
 
-    public CPU(String playerID){
+    public CPU(String playerID) {
         this.playerID = playerID;
     }
+
     @Override
     public void play() {
     }
@@ -27,9 +28,5 @@ public class CPU extends Player{
     public void lose() {
         losses++;
     }
-    
-    public void cpuLogic(Hand hand){
-        
-    }
-    
+
 }

@@ -29,11 +29,11 @@ public class Money {
     }
 
     public void remove() {
-        this.amount = amount - 100;
+        amount -= 100;
     }
 
     public void add() {
-        this.amount = amount + 100;
+        amount += 100;
     }
 
 }

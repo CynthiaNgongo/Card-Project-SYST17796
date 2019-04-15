@@ -24,10 +24,24 @@ public class Hand {
         return print;
     }
 
+    public String getHiddenHand() {
+        String print = "?? ";
+        for (int i = 1; i < hand.size(); i++) {
+            print += hand.get(i).toString();
+        }
+
+        return print;
+    }
+
     public int getValue() {
         value = 0;
         for (PlayingCard pc : hand) {
-            value += Integer.parseInt(pc.getValue());
+            if (pc.getValue().equals("A") || pc.getValue().equals("J")
+                    || pc.getValue().equals("Q") || pc.getValue().equals("K")) {
+                value += 10;
+            } else {
+                value += Integer.parseInt(pc.getValue());
+            }
         }
         return value;
     }

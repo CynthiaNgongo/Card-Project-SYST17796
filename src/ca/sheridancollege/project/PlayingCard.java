@@ -3,22 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ca.sheridancollege.project;
 
 /**
-*  Class name: Playing Card
-*  Author: Kendrick, Tsz-Kin Yeung
-*  Date:
-*
-*  Description:
-*/
-public class PlayingCard extends Card{
+ * Class name: Playing Card Author: Kendrick, Tsz-Kin Yeung Date:
+ *
+ * Description:
+ */
+public class PlayingCard extends Card {
+
     private char suit;
     private String value;
 
     /**
      * Default constructor
+     *
      * @param suit 0 for Spade, 1 for Heart, 2 for Club, 3 for Diamond
      * @param value the card's value from 1-13(K)
      */
@@ -49,6 +48,7 @@ public class PlayingCard extends Card{
     }
 
     public String getValue() {
+
         return value;
     }
 
@@ -57,12 +57,21 @@ public class PlayingCard extends Card{
             case 1:
                 this.value = "A";
                 break;
+            case 11:
+                this.value = "J";
+                break;
+            case 12:
+                this.value = "Q";
+                break;
+            case 13:
+                this.value = "K";
+                break;
             default:
                 this.value = value.toString();
                 break;
         }
     }
-    
+
     @Override
     public String toString() {
         return getSuit() + getValue() + " ";
