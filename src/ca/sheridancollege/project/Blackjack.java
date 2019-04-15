@@ -59,7 +59,7 @@ public class Blackjack extends Game {
                 stay = false;
                 while (done == false) {
                     while (playerHand.getValue() < 21 && stay == false) {
-                        System.out.println("1 for HIT, 2 for STAY");
+                        System.out.print("1 for HIT, 2 for STAY: ");
                         hit = in.nextInt();
                         if (hit == 1) {
                             dealer.hit(playerHand);
