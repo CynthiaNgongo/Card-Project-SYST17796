@@ -54,10 +54,10 @@ public class Blackjack extends Game {
                 System.out.println("Dealer Hand:\t" + cpuHand.getHiddenHand());
                 System.out.println(player.getPlayerID() + "'s Hand:\t" + playerHand.getHand());
                 boolean done = false;
-                boolean stupidthing = true;
+                boolean stay = false;
                 while (done == false) {
                     int hit = 1;
-                    while (playerHand.getValue() < 21 && stupidthing == true) {
+                    while (playerHand.getValue() < 21 && stay == false) {
                         System.out.println("1 for HIT, 2 for STAY");
                         hit = in.nextInt();
                         if (hit == 1) {
@@ -75,7 +75,7 @@ public class Blackjack extends Game {
                             }
                             System.out.println("Dealer Hand:\t" + cpuHand.getHiddenHand());
                             System.out.println(player.getPlayerID() + "'s Hand:\t" + playerHand.getHand());
-                            stupidthing = false;
+                            stay = true;
 
                         }
 

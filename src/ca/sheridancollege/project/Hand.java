@@ -36,9 +36,10 @@ public class Hand {
     public int getValue() {
         value = 0;
         for (PlayingCard pc : hand) {
-            if (pc.getValue().equals("A") || pc.getValue().equals("J")
-                    || pc.getValue().equals("Q") || pc.getValue().equals("K")) {
+            if (pc.getValue().equals("J") || pc.getValue().equals("Q") || pc.getValue().equals("K")) {
                 value += 10;
+            } else if (pc.getValue().equals("A")) {
+                value += 1;
             } else {
                 value += Integer.parseInt(pc.getValue());
             }
