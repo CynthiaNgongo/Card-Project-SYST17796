@@ -26,7 +26,6 @@ public class CPU extends Player {
 
     @Override
     public void lose() {
-        losses++;
     }
 
 }

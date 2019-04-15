@@ -17,7 +17,6 @@ public class GamePlayer extends Player {
     public GamePlayer(String playerID, Money money) {
         this.playerID = playerID;
         this.money = money;
-        this.losses = 0;
         this.wins = 0;
     }
 
@@ -31,7 +30,6 @@ public class GamePlayer extends Player {
 
     public void lose() {
         money.remove();
-        losses++;
     }
 
     public int getMoney() {
