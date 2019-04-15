@@ -18,6 +18,8 @@ public class Blackjack extends Game {
     private Money money;
     private Hand playerHand, cpuHand;
     private Dealer dealer;
+    private boolean cont, done, stay;
+    private int hit;
 
     public Blackjack(String givenName) {
         super(givenName);
@@ -34,7 +36,7 @@ public class Blackjack extends Game {
         money = new Money(500);
         player = new GamePlayer(name, money);
         cpu = new CPU("Dealer");
-        boolean cont = true;
+        cont = true;
         while (cont) {
             if (player.getMoney() <= 0) {
                 System.out.println("Sorry, you ran out of money\nGoodbye!");
@@ -53,10 +55,9 @@ public class Blackjack extends Game {
 
                 System.out.println("Dealer Hand:\t" + cpuHand.getHiddenHand());
                 System.out.println(player.getPlayerID() + "'s Hand:\t" + playerHand.getHand());
-                boolean done = false;
-                boolean stay = false;
+                done = false;
+                stay = false;
                 while (done == false) {
-                    int hit = 1;
                     while (playerHand.getValue() < 21 && stay == false) {
                         System.out.println("1 for HIT, 2 for STAY");
                         hit = in.nextInt();
@@ -80,47 +81,9 @@ public class Blackjack extends Game {
                         }
 
                     }
-                    if (playerHand.getValue() == 21) {
-                        player.win();
-                        System.out.println("You got 21! You win. You now have: $" + player.getMoney());
-                        done = true;
+                    checkValue();
+                    //comparing values
 
-                    } else if (cpuHand.getValue() == 21) {
-                        player.lose();
-                        System.out.println("The dealer has gotten 21. You lost and have $" + player.getMoney());
-                        done = true;
-
-                    } else if (playerHand.getValue() > 21) {
-
-                        player.lose();
-                        System.out.println("You have gone bust. You have $" + player.getMoney());
-                        done = true;
-
-                    } else if (cpuHand.getValue() > 21) {
-
-                        player.win();
-                        System.out.println("The dealer has gone bust. You win and have $" + player.getMoney());
-                        done = true;
-
-                    } else if (playerHand.getValue() > cpuHand.getValue()) {
-                        player.win();
-                        System.out.println("You have won. You have $" + player.getMoney());
-                        done = true;
-
-                    } else if (playerHand.getValue() < cpuHand.getValue()) {
-                        player.lose();
-                        System.out.println("You have lost. You have $" + player.getMoney());
-                        done = true;
-
-                    } else if (playerHand.getValue() == cpuHand.getValue()) {
-                        System.out.println("You have tied. You have $" + player.getMoney());
-                        done = true;
-
-                    } else if ((cpuHand.getValue() == 21 && playerHand.getValue() == 21)
-                            || (cpuHand.getValue() == playerHand.getValue())) {
-                        System.out.println("You and the dealer have tied. You still have: $" + player.getMoney());
-                        done = true;
-                    }
                 }
 
             } else {
@@ -134,5 +97,49 @@ public class Blackjack extends Game {
 
     @Override
     public void declareWinner() {
+    }
+
+    public void checkValue() {
+        if (playerHand.getValue() == 21) {
+            player.win();
+            System.out.println("You got 21! You win. You now have: $" + player.getMoney());
+            done = true;
+
+        } else if (cpuHand.getValue() == 21) {
+            player.lose();
+            System.out.println("The dealer has gotten 21. You lost and have $" + player.getMoney());
+            done = true;
+
+        } else if (playerHand.getValue() > 21) {
+
+            player.lose();
+            System.out.println("You have gone bust. You have $" + player.getMoney());
+            done = true;
+
+        } else if (cpuHand.getValue() > 21) {
+
+            player.win();
+            System.out.println("The dealer has gone bust. You win and have $" + player.getMoney());
+            done = true;
+
+        } else if (playerHand.getValue() > cpuHand.getValue()) {
+            player.win();
+            System.out.println("You have won. You have $" + player.getMoney());
+            done = true;
+
+        } else if (playerHand.getValue() < cpuHand.getValue()) {
+            player.lose();
+            System.out.println("You have lost. You have $" + player.getMoney());
+            done = true;
+
+        } else if (playerHand.getValue() == cpuHand.getValue()) {
+            System.out.println("You have tied. You have $" + player.getMoney());
+            done = true;
+
+        } else if ((cpuHand.getValue() == 21 && playerHand.getValue() == 21)
+                || (cpuHand.getValue() == playerHand.getValue())) {
+            System.out.println("You and the dealer have tied. You still have: $" + player.getMoney());
+            done = true;
+        }
     }
 }
