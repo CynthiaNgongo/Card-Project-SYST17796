@@ -25,13 +25,11 @@ public class Blackjack extends Game {
         super(givenName);
     }
 
-    
     @Override
     public void play() {
         Scanner in = new Scanner(System.in);
         System.out.print("Please enter your name: ");
         String name = in.nextLine();
-        in = new Scanner(System.in);
         dealer = new Dealer();
         money = new Money(500);
         player = new GamePlayer(name, money);
@@ -51,6 +49,7 @@ public class Blackjack extends Game {
                 playerHand = new Hand();
                 cpuHand = new Hand();
                 dealer.deal(cpuHand);
+                dealer.setNewRound(false);
                 dealer.deal(playerHand);
 
                 System.out.println("Dealer Hand:\t" + cpuHand.getHiddenHand());
@@ -87,7 +86,7 @@ public class Blackjack extends Game {
                 }
 
             } else {
-                System.out.println("You cashed in for $" + player.getMoney());
+                System.out.println("You cashed in for $" + player.getMoney() + "\nYour wins: " + player.getWins());
                 declareWinner();
                 System.out.println("Thank you, Goodbye!");
                 break;
@@ -100,9 +99,9 @@ public class Blackjack extends Game {
     public void declareWinner() {
         if (player.getMoney() >= 1000) {
             System.out.println("You have cashed out with $1000 or over\nYou won");
+        } else {
+            System.out.println("Sorry you lost. You didn't cash out with $1000");
         }
-        else{
-            System.out.println("Sorry you lost. You didn't cash out with $1000");}
     }
 
     public void checkValue() {
