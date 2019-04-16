@@ -1,14 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Leonardo Stifano
+ * Cynthia Ngongo
+ * Vinushan Wickramasingam
+ * Tsz-Kin Yeung
  */
 package ca.sheridancollege.project;
 
 /**
- * Class name: Playing Card Author: Kendrick, Tsz-Kin Yeung Date:
- *
- * Description:
+ * Description: This class is used to create a playing card for a poker deck.
+ *              Used by GroupOfCards class.
  */
 public class PlayingCard extends Card {
 
@@ -25,11 +25,11 @@ public class PlayingCard extends Card {
         setSuit(suit);
         setValue(value);
     }
-
+    //return suit unicode character
     public char getSuit() {
         return suit;
     }
-
+    //use to set the value of the suit 
     public void setSuit(int suit) {
         switch (suit) {
             case 0:
@@ -46,12 +46,13 @@ public class PlayingCard extends Card {
                 break;
         }
     }
-
+    
+    //return the value in a string
     public String getValue() {
 
         return value;
     }
-
+    //change or set the value
     public void setValue(Integer value) {
         switch (value) {
             case 1:
@@ -71,7 +72,7 @@ public class PlayingCard extends Card {
                 break;
         }
     }
-
+    //return a string with the suit and value
     @Override
     public String toString() {
         return getSuit() + getValue() + " ";
