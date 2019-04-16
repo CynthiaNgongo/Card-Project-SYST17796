@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author lstif
  */
 public class Blackjack extends Game {
-
+    //calling fields outside to be used by all methods
     private Player cpu;
     private Player player;
     private Money money;
@@ -20,21 +20,26 @@ public class Blackjack extends Game {
     private Dealer dealer;
     private boolean cont, done, stay;
     private int hit;
-
+    //constructor with gameName
     public Blackjack(String givenName) {
         super(givenName);
     }
-
+    //contains the content of the game 
     @Override
     public void play() {
+        //declare and initialize scanner object
         Scanner in = new Scanner(System.in);
+        //get input from user
         System.out.print("Please enter your name: ");
         String name = in.nextLine();
+        //initialize a Dealer and Money
         dealer = new Dealer();
         money = new Money(500);
+        //initiial cpu and player
         player = new GamePlayer(name, money);
         cpu = new CPU("Dealer");
         cont = true;
+        //loop through until the player runs out of money or cashes in
         while (cont) {
             if (player.getMoney() <= 0) {
                 System.out.println("Sorry, you ran out of money\nGoodbye!");
