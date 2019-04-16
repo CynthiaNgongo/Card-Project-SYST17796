@@ -8,10 +8,6 @@ package ca.sheridancollege.project;
 
 import java.util.Scanner;
 
-/**
- *
- * @author lstif
- */
 public class Blackjack extends Game {
     //declaring global variables
     private Player cpu;
