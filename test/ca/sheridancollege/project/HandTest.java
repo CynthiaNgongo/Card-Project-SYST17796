@@ -18,22 +18,22 @@ import static org.junit.Assert.*;
  * @author Cynthia Ngongo
  */
 public class HandTest {
-    
+
     public HandTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,36 +43,38 @@ public class HandTest {
      */
     @Test
     public void testGetValueGood() {
-        System.out.println("getValue");
+        System.out.println("getValueGood");
+        Hand instance = new Hand();
+        instance.addCard(new PlayingCard(1, 4));
+        int expResult = 4;
+        int result = instance.getValue();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getValue method, of class Hand.
+     * Bad because you do not want to use this function when the Hand is empty
+     */
+    @Test
+    public void testGetValueBad() {
+        System.out.println("getValueBad");
         Hand instance = new Hand();
         int expResult = 0;
         int result = instance.getValue();
         assertEquals(expResult, result);
     }
-    
-    /**
-     * Test of getValue method, of class Hand.
-     */
-    @Test
-    public void testGetValueBad() {
-        System.out.println("getValue");
-        Hand instance = new Hand();
-        int expResult = 15;
-        int result = instance.getValue();
-        assertEquals(expResult, result);
-    }
-    
+
     /**
      * Test of getValue method, of class Hand.
      */
     @Test
     public void testGetValueBoundary() {
-        System.out.println("getValue");
+        System.out.println("getValueBoundary");
         Hand instance = new Hand();
-        int expResult = 13;
+        instance.addCard(new PlayingCard(1, 13));
+        int expResult = 10;
         int result = instance.getValue();
         assertEquals(expResult, result);
     }
 
-    
 }
