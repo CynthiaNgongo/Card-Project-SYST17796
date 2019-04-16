@@ -1,7 +1,8 @@
 /*
  * Leonardo Stifano
- * Student ID: 991 532 946
- * SYST10199 - Web Programming
+ * Cynthia Ngongo
+ * Vinushan Wickramasingam
+ * Tsz-Kin Yeung
  */
 package ca.sheridancollege.project;
 
@@ -12,8 +13,11 @@ package ca.sheridancollege.project;
 public class PlayBlackjack {
     
     public static void main(String[] args) {
+        //declaring Blackjack object
         Blackjack blackjack = new Blackjack("Blackjack");
+        //print title
         System.out.println("---------Blackjack---------");
+        //call blackjack play method to play the game
         blackjack.play();
     }
 }
