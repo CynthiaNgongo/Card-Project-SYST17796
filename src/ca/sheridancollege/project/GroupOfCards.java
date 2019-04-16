@@ -1,7 +1,8 @@
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
+/*
+ * Leonardo Stifano
+ * Cynthia Ngongo
+ * Vinushan Wickramasingam
+ * Tsz-Kin Yeung
  */
 package ca.sheridancollege.project;
 
@@ -20,7 +21,8 @@ public class GroupOfCards {
     //The group of cards, stored in an ArrayList
     private ArrayList<PlayingCard> cards;
     private int size;//the size of the grouping
-
+    
+    //create deck when object is made and shuffle
     public GroupOfCards() {
         cards = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
@@ -39,7 +41,8 @@ public class GroupOfCards {
     public ArrayList<PlayingCard> showCards() {
         return cards;
     }
-
+    
+    //shuffle the cards when called
     public void shuffle() {
         Collections.shuffle(cards);
     }
