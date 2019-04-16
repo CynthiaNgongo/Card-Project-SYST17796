@@ -46,6 +46,10 @@ public class Dealer {
         this.newRound = newRound;
     }
     
+    public boolean getNewRound(boolean newRound){
+        return this.newRound;
+    }
+    
     public void hit(Hand hand) {
         hand.addCard(deck.showCards().get(0));
         deck.showCards().remove(0);
