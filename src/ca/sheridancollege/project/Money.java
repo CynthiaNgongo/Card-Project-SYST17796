@@ -1,37 +1,38 @@
 /*
  * Leonardo Stifano
- * Student ID: 991 532 946
- * SYST10199 - Web Programming
+ * Cynthia Ngongo
+ * Vinushan Wickramasingam
+ * Tsz-Kin Yeung
  */
 package ca.sheridancollege.project;
 
-/**
- *
- * @author lstif
- */
 public class Money {
-
+    
+    //amount field
     private int amount;
-
+    
+    //constructor setting amount
     public Money(int amount) {
         this.amount = amount;
     }
-
+    
+    //default constructor
     public Money() {
     }
-
+    
+    //use to return amount field
     public int getAmount() {
         return amount;
     }
-
+    //use to set amount field
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
+    //use to subtract 100 from amount field
     public void remove() {
         amount -= 100;
     }
-
+    //use to add 100 to the amount field
     public void add() {
         amount += 100;
     }
