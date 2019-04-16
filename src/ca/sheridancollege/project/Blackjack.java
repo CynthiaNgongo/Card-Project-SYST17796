@@ -1,7 +1,8 @@
 /*
  * Leonardo Stifano
- * Student ID: 991 532 946
- * SYST10199 - Web Programming
+ * Cynthia Ngongo
+ * Vinushan Wickramasingam
+ * Tsz-Kin Yeung
  */
 package ca.sheridancollege.project;
 
