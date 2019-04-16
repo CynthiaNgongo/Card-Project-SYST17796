@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author lstif
  */
 public class Blackjack extends Game {
-    //calling fields outside to be used by all methods
+    //declaring global variables
     private Player cpu;
     private Player player;
     private Money money;
@@ -51,45 +51,60 @@ public class Blackjack extends Game {
             System.out.print("1 for Deal, 2 for Cash in: ");
             int deal = in.nextInt();
             in = new Scanner(System.in);
+            //execute if the user wants to get dealt a card
             if (deal == 1) {
-
+                //set a new round for dealer validation
                 dealer.setNewRound(true);
+                //create the new hands
                 playerHand = new Hand();
                 cpuHand = new Hand();
+                //after dealing to one player, make new round false
                 dealer.deal(cpuHand);
                 dealer.setNewRound(false);
+                //deal to next player
                 dealer.deal(playerHand);
-
+                //display dealers hand without revealing the first card
                 System.out.println("Dealer Hand:\t" + cpuHand.getHiddenHand());
+                //display whole player hand
                 System.out.println(player.getPlayerID() + "'s Hand:\t" + playerHand.getHand());
+                //initialize done and stay variables
                 done = false;
                 stay = false;
+                //while execution is not done, continue
                 while (done == false) {
+                    //continue while the user did not select STAY or the user has not gone bust
                     while (playerHand.getValue() < 21 && stay == false) {
                         System.out.print("1 for HIT, 2 for STAY: ");
                         hit = in.nextInt();
+                        //if user choses HIT, deal to them
                         if (hit == 1) {
                             dealer.hit(playerHand);
+                            //if the cpu hand value is under 17, deal to them as well
                             if (cpuHand.getValue() < 17) {
                                 dealer.hit(cpuHand);
                             }
-
+                            //display dealer hand (hidden first card) and player hand
                             System.out.println("Dealer Hand:\t" + cpuHand.getHiddenHand());
                             System.out.println(player.getPlayerID() + "'s Hand:\t" + playerHand.getHand());
-
+                            //loop continues execution due to HIT being selected
+                            
+                        //if the player chooses to STAY, continue to deal to the cpu unless the cpu hand value is 17 or greater
                         } else {
                             while (cpuHand.getValue() < 17) {
                                 dealer.hit(cpuHand);
                             }
+                            //display dealer hand(hidden first) and player hand
                             System.out.println("Dealer Hand:\t" + cpuHand.getHiddenHand());
                             System.out.println(player.getPlayerID() + "'s Hand:\t" + playerHand.getHand());
+                            //initialize stay to true, to stop loop from starting
                             stay = true;
+                            //go to the checkValue() function
 
                         }
 
                     }
+                    //compare hand values, then finish loop
                     checkValue();
-                    //comparing values
                 }
 
             } 
@@ -120,6 +135,7 @@ public class Blackjack extends Game {
         //check player first
         //player wins if they have 21
         if (playerHand.getValue() == 21) {
+            //call win function - adds 1 win and $100
             player.win();
             System.out.println("You got 21! You win. You now have: $" + player.getMoney());
             System.out.println("The dealer had: " + cpuHand.getHand());
@@ -132,14 +148,12 @@ public class Blackjack extends Game {
             done = true;
         //player loses if they go over 21
         } else if (playerHand.getValue() > 21) {
-
             player.lose();
             System.out.println("You have gone bust. You have $" + player.getMoney());
             System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
         //cpu loses if the go over 21 and the player hasn't
         } else if (cpuHand.getValue() > 21) {
-
             player.win();
             System.out.println("The dealer has gone bust. You win and have $" + player.getMoney());
             System.out.println("The dealer had: " + cpuHand.getHand());
