@@ -1,24 +1,23 @@
 /*
  * Leonardo Stifano
- * Student ID: 991 532 946
- * SYST10199 - Web Programming
+ * Cynthia Ngongo
+ * Vinushan Wickramasingam
+ * Tsz-Kin Yeung
  */
 package ca.sheridancollege.project;
 
-/**
- *
- * @author lstif
- */
+
 public class CPU extends Player {
 
     public CPU(String playerID) {
         this.playerID = playerID;
     }
-
+        
     @Override
     public void play() {
     }
-
+    
+    //count cpu wins
     @Override
     public void win() {
         wins++;

@@ -1,27 +1,32 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Leonardo Stifano
+ * Cynthia Ngongo
+ * Vinushan Wickramasingam
+ * Tsz-Kin Yeung
  */
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 
-/**
- * Class name: Dealer Author: Kendrick, Tsz-Kin Yeung Date: 11 Apr 2019
- *
- * Description:
- */
+/*Description : This class handles the dealing aspect of the game. It moves 
+                Card objects from the GroupOfCards class to the Hand chosen 
+                with the parameter. 
+*/ 
 public class Dealer {
     
+    //declaring fields
     private GroupOfCards deck = new GroupOfCards();
+    //field to allow for validation in the deal method
     private boolean newRound;
     
+    //initial deal to player and cpu
+    //deals to chosen hand
     public void deal(Hand hand) {
-        //prevent duplicates
+        //reset deck when cut off point is reached when there is a new round.
         if (deck.getSize() < 15 && newRound == true) {
             deck = new GroupOfCards();
         }
+        //add 2 cards from the deck to the hand, and remove them from the deck
         for (int i = 0; i < 2; i++) {
             if (deck.showCards().size() > 0) {
                 hand.addCard(deck.showCards().get(0));
@@ -29,7 +34,7 @@ public class Dealer {
             }
             
         }
-        
+        //reduce deck size by  2
         deck.setSize(deck.getSize() - 2);
     }
     
