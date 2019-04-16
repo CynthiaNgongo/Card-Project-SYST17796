@@ -1,7 +1,8 @@
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
+/*
+ * Leonardo Stifano
+ * Cynthia Ngongo
+ * Vinushan Wickramasingam
+ * Tsz-Kin Yeung
  */
 package ca.sheridancollege.project;
 
@@ -45,14 +46,12 @@ public abstract class Game {
     }
 
     /**
-     * Play the game. This might be one method or many method calls depending on
-     * your game.
+     * Play the game. 
      */
     public abstract void play();
 
     /**
-     * When the game is over, use this method to declare and display a winning
-     * player.
+     * When the game is over, use this method to display whether the player won
      */
     public abstract void declareWinner();
 
