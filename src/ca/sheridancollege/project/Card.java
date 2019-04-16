@@ -1,7 +1,9 @@
 /**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Cynthia Ngongo 991513346 - Feb 08 2019
+ * SYST 17796 Project Winter 2019 Base code
+ * Leonardo Stifano
+ * Cynthia Ngongo
+ * Vinushan Wickramasingam
+ * Tsz-Kin Yeung
  */
 package ca.sheridancollege.project;
 
