@@ -143,31 +143,25 @@ public class Blackjack extends Game {
             player.win();
             System.out.println("The dealer has gone bust. You win and have $" + player.getMoney());
             System.out.println("The dealer had: " + cpuHand.getHand());
-
             done = true;
-
+        //if the player hand is greater than the cpu hand, the player wins (and !<= 21)
         } else if (playerHand.getValue() > cpuHand.getValue()) {
             player.win();
             System.out.println("You have won. You have $" + player.getMoney());
             System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
-
+        //if the player hand is less than the cpu hand, the player loses
         } else if (playerHand.getValue() < cpuHand.getValue()) {
             player.lose();
             System.out.println("You have lost. You have $" + player.getMoney());
             System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
-
+        //if the player and cpu have the same value, they tie
         } else if (playerHand.getValue() == cpuHand.getValue()) {
             System.out.println("You have tied. You still have $" + player.getMoney());
             System.out.println("The dealer had: " + cpuHand.getHand());
             done = true;
 
-        } else if ((cpuHand.getValue() == 21 && playerHand.getValue() == 21)
-                || (cpuHand.getValue() == playerHand.getValue())) {
-            System.out.println("You and the dealer have tied. You still have: $" + player.getMoney());
-            System.out.println("The dealer had: " + cpuHand.getHand());
-            done = true;
-        }
+        } 
     }
 }
